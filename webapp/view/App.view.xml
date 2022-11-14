@@ -1,0 +1,10 @@
+<mvc:View controllerName="syncbiginspection1.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.f" height="100%">
+        <FlexibleColumnLayout 
+        id="flexibleColumnLayout"
+        stateChange=".onStateChanged" 
+        backgroundDesign="Solid"
+        layout="{app>/layout}" />
+</mvc:View>
