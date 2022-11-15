@@ -111,7 +111,7 @@
 										</t:template>
 									</t:Column>
 									<t:Column width="8rem">
-										<m:Label text="송장번호" />
+										<m:Label text="송장번호"/>
 										<t:template>
 											<m:Text text="{Delnr}" wrapping="false" />
 										</t:template>
@@ -297,9 +297,10 @@
 
         <footer>
 			<m:OverflowToolbar>
+				<m:Text text="선택한 상품을 검수완료(입고완료) 처리하시겠습니까?" />
 				<m:ToolbarSpacer/>
-				<m:Button type="Accept" text="저장"/>
-				<m:Button type="Reject" text="취소"/>
+				<m:Button press="onPressAccept" type="Accept" text="저장"/>
+				<m:Button press="onPressReject" type="Reject" text="취소"/>
 			</m:OverflowToolbar>
 		</footer>
 	</ObjectPageLayout>

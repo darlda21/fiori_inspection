@@ -18,19 +18,36 @@ sap.ui.define([
 
 		_onProductMatched: function (oEvent) {
 			this._product = oEvent.getParameter("arguments").product || this._product || "0";
-			// this.getView().bindElement({
-			// 	path: "/product",
-			// 	model: "/vbapSet"
-			// });
 
 			// 이벤트 값을 가져오는 방법
 			// var oModelApp = this.getOwnerComponent().getModel("app");
 			// alert( oModelApp.getProperty("/product") );
 			// alert( '이벤트에서 받아온 ' + this._product );
 
-			var oFilter = [new Filter('Vbeln', FilterOperator.EQ, this._product)];
+			// var oFilter = [new Filter('Vbeln', FilterOperator.EQ, this._product)];
+			var oFilter = [new Filter({
+				filters:[
+					new Filter('Vbeln', FilterOperator.EQ, this._product),
+					new Filter('Vpins', FilterOperator.NE, "2")	// 검수전
+				],
+				and: true
+			})];
 
-			var oList = this.getView().byId("suppliersTable"); 
+			var oFilter2 = [new Filter({
+				filters:[
+					new Filter('Vbeln', FilterOperator.EQ, this._product),
+					new Filter('Vpins', FilterOperator.EQ, "2") // 검수완료
+				],
+				and: true
+			})];
+
+			var oFilter3 = [new Filter('Vbeln', FilterOperator.EQ, this._product)]; // 선택한 구매오더 번호
+
+			var oList = this.getView().byId("suppliersTable");		// 검수리스트
+			var oList2 = this.getView().byId("suppliersTable2");	// 검수내역
+			var oList3 = this.getView().byId("vbakHeaderBox");		// 구매정보 헤더
+			var oList4 = this.getView().byId("vbakTitleBox");		// 구매정보 제목
+
 			if ( oList ){
 				var oBinding = oList.getBinding("rows");
 
@@ -38,6 +55,31 @@ sap.ui.define([
 					oBinding.filter(oFilter);
 				}
 			}
+
+			if ( oList2 ){
+				var oBinding = oList2.getBinding("rows");
+
+				if ( oBinding ){
+					oBinding.filter(oFilter2);
+				}
+			}
+
+			if ( oList3 ){
+				var oBinding = oList3.getBinding("items");
+
+				if ( oBinding ){
+					oBinding.filter(oFilter);
+				}
+			}
+
+			if ( oList4 ){
+				var oBinding = oList4.getBinding("items");
+
+				if ( oBinding ){
+					oBinding.filter(oFilter3);
+				}
+			}
+			
 		},
 
 		onEditToggleButtonPress: function() {
