@@ -14,16 +14,15 @@ sap.ui.define([
 
         return Controller.extend("syncbiginspection1.controller.Master", {
             onInit: function () {
-                // this.oView = this.getView();
-                // this._bDescendingSort = false;
-                // this.oProductsTable = this.oView.byId("productsTable");
+                this.oView = this.getView();
+                this._bDescendingSort = false;
+                this.oProductsTable = this.getView().byId("productsTable");
                 this.oRouter = this.getOwnerComponent().getRouter();
 
             },
 
             onAfterRendering: function() { 
-                var oView = this.getView();
-                var oModel = oView.getModel();
+                var oModel = this.oView.getModel();
                 var that = this;
                 oModel.read("/vbakSet", {
                     success: function (oEvent) {
@@ -35,28 +34,22 @@ sap.ui.define([
             },
 
             onSearch: function (oEvent) {
-                // var oTableSearchState = [],
-                // 	sQuery = oEvent.getParameter("query");
+                var oTableSearchState = [];
+                var sQuery = oEvent.getParameter("query");
     
-                // if (sQuery && sQuery.length > 0) {
-                // 	oTableSearchState = [new Filter("Name", FilterOperator.Contains, sQuery)];
-                // }
+                if (sQuery && sQuery.length > 0) {
+                	oTableSearchState = [new Filter("Vbeln", FilterOperator.Contains, sQuery)];
+                }
     
-                // this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
-                MessageBox.information("Search Button is pressed.", {title: "Aw, Snap!"});
-            },
-    
-            onAdd: function () {
-                MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
+                this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
             },
     
             onSort: function () {
-                // this._bDescendingSort = !this._bDescendingSort;
-                // var oBinding = this.oProductsTable.getBinding("items"),
-                // 	oSorter = new Sorter("Name", this._bDescendingSort);
+                this._bDescendingSort = !this._bDescendingSort;
+                var oBinding = this.oProductsTable.getBinding("items"),
+                	oSorter = new Sorter("Vkins", this._bDescendingSort);
     
-                // oBinding.sort(oSorter);
-                MessageBox.information("Sort Button is pressed.", {title: "Aw, Snap!"});
+                oBinding.sort(oSorter);
             },
     
             onListItemPress: function (oEvent) {
