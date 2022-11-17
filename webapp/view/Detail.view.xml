@@ -152,13 +152,13 @@
 									<t:Column width="8rem">
 										<m:Label text="검수유형" />
 										<t:template>
-											<m:Select selectedKey="1" enabled="{= ${Dstat} === 'A' ? true : false}">
+											<m:Select id="intypSelect" selectedKey="1" enabled="{= ${Dstat} === 'A' ? true : false}">
 												<m:items>
-													<c:ListItem key="1" text="일반" icon="sap-icon://add-product" />
-													<c:ListItem key="2" text="교환" icon="sap-icon://synchronize" />
-													<c:ListItem key="3" text="반품" icon="sap-icon://reset" />
-													<c:ListItem key="4" text="누락" icon="sap-icon://decline" />
-													<c:ListItem key="5" text="오배송" icon="sap-icon://cancel" />
+													<c:ListItem key="" text="일반" icon="sap-icon://add-product" />
+													<c:ListItem key="E" text="교환" icon="sap-icon://synchronize" />
+													<c:ListItem key="R" text="반품" icon="sap-icon://reset" />
+													<c:ListItem key="O" text="누락" icon="sap-icon://decline" />
+													<c:ListItem key="W" text="오배송" icon="sap-icon://cancel" />
 												</m:items>
 											</m:Select>
 										</t:template>
@@ -167,6 +167,7 @@
 										<m:Label text="검수량" />
 										<t:template>
 											<m:StepInput
+												id="intmeInput"
 												value="{= Number(${Menge})}"
 												min="0"
 												max="{= Number(${Menge})}"
@@ -175,6 +176,7 @@
 												fieldWidth="10%"
 												description="개"
 												valueState="Success"
+												valueStateText="검수량은 0 이상 주문량 이하입니다."
 												enabled="{= ${Dstat} === 'A' ? true : false}"/>
 										</t:template>
 									</t:Column>
