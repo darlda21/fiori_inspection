@@ -2,7 +2,7 @@
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
     <edmx:DataServices m:DataServiceVersion="2.0">
         <Schema Namespace="ZCL1_SYNCBIG_UI07_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-            <EntityType Name="astm" sap:content-version="1">
+            <EntityType Name="astm" sap:label="가맹점 정보" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Kunnr"/>
                 </Key>
@@ -24,36 +24,61 @@
                 <Property Name="Aesda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="변경일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Aezet" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="변경시간" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="vba" sap:content-version="1">
+            <EntityType Name="vbak" sap:label="구매(변경)오더 H" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Vbeln"/>
-                    <PropertyRef Name="Posnr"/>
                 </Key>
                 <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="판매 오더 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="주문 품목 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Ordnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="주문 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Vbcon" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="오더 처리 상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Vbtyp" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="오더 유형" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Budat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="전기 일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:unit="Waers" sap:label="금액" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Vkins" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="검수 상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Posct" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="총개수" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Ernam" Type="Edm.String" Nullable="false" MaxLength="7" sap:unicode="false" sap:label="생성자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Ersda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="생성일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Erzet" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="생성시간" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Aenam" Type="Edm.String" Nullable="false" MaxLength="7" sap:unicode="false" sap:label="변경자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Aesda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="변경일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Aezet" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="변경시간" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="vbap" sap:label="구매(변경)오더 I" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                    <PropertyRef Name="Posnr"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="판매 오더 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="주문 품목 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Delnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="물품 송장 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="자재번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="자재이름" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="Meins" sap:label="자재수량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Base Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
                 <Property Name="Unpri" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:unit="Waers" sap:label="단가" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="플랜트 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Lgort" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="저장위치" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Picon" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="피킹 상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dstat" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="배송 상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ardat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="물류 도착일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Arzet" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="물류 도착 시간" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vpins" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="검수 상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Intyp" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="검수 유형" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Intme" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="Meins" sap:label="검수 수량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Intda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="검수 일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="json" sap:label="JSON string" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Data"/>
+                </Key>
+                <Property Name="Data" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="JSON string" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityContainer Name="ZCL1_SYNCBIG_UI07_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="astmSet" EntityType="ZCL1_SYNCBIG_UI07_SRV.astm" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="vbaSet" EntityType="ZCL1_SYNCBIG_UI07_SRV.vba" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="astmSet" EntityType="ZCL1_SYNCBIG_UI07_SRV.astm" sap:label="가맹점 정보" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="vbakSet" EntityType="ZCL1_SYNCBIG_UI07_SRV.vbak" sap:label="구매오더 H" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="vbapSet" EntityType="ZCL1_SYNCBIG_UI07_SRV.vbap" sap:label="구매오더 I" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="jsonSet" EntityType="ZCL1_SYNCBIG_UI07_SRV.json" sap:label="JSON String" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
             </EntityContainer>
             <atom:link rel="self" href="http://edu.bgis.co.kr:8001/sap/opu/odata/sap/ZCL1_SYNCBIG_UI07_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
             <atom:link rel="latest-version" href="http://edu.bgis.co.kr:8001/sap/opu/odata/sap/ZCL1_SYNCBIG_UI07_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
